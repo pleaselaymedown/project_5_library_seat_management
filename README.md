@@ -18,22 +18,23 @@ Basys3 FPGA 보드와 Vivado Block Design을 기반으로 구현한 **도서관 
 
 ## ⚙️ 3. Tech Stack (기술 스택)
 
-### 3.1 Language / Design
+### 3.1 Language (사용 언어)
 
 <p>
   <img src="https://img.shields.io/badge/Verilog-HDL-blue?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Block%20Design-Vivado-orange?style=for-the-badge">
   <img src="https://img.shields.io/badge/C-Vitis-blue?style=for-the-badge">
 </p>
 
-### 3.2 Hardware / IP
+### 3.2 Development Environment (개발 환경)
 
 <p>
-  <img src="https://img.shields.io/badge/Basys3-FPGA-red?style=for-the-badge">
-  <img src="https://img.shields.io/badge/MicroBlaze-RISC--V-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Vivado-Block%20Design-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Vitis-Embedded%20SW-blue?style=for-the-badge">
+</p>
 
 
----
+
+<br>
 
 ## 🗂️ 4. Project Structure (프로젝트 구조)
 
@@ -72,6 +73,7 @@ project_LIBRARY/
 └── project_LIBRARY.sim/                                     # 시뮬레이션 관련 파일
 ```
 
+<br>
 
 ## 🧱 5. System Design (시스템 설계)
 
@@ -158,7 +160,7 @@ flowchart TD
 <img src="./images/block_diagram.png" alt="Hardware Block Diagram" width="1000">
 
 <br>
----
+
 
 ## 🎬 7. Demonstration (시연 영상)
 
