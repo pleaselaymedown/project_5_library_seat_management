@@ -72,11 +72,6 @@ project_LIBRARY/
 └── project_LIBRARY.sim/                                     # 시뮬레이션 관련 파일
 ```
 
-```
-
-```
-
----
 
 ## 🧱 5. System Design (시스템 설계)
 
@@ -164,7 +159,7 @@ flowchart TD
 
 ---
 
-## 🎬 11. Demonstration (시연 영상)
+## 🎬 7. Demonstration (시연 영상)
 
 ### 이미지를 클릭하면 영상으로 이동합니다
 
@@ -176,7 +171,7 @@ flowchart TD
 
 ---
 
-## 🛠️ 12. Troubleshooting (문제 해결 기록)
+## 🛠️ 8. Troubleshooting (문제 해결 기록)
 
 ### 12.1 LCD 출력 핀 연결 문제
 
