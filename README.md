@@ -1,50 +1,18 @@
-# 📚 Project_5 Library Seat Management 💺
+# 📚 Project_5 Library Seat Management 📚
+<br>
 
 ## 📌 1. Project Summary (프로젝트 요약)
 
-Basys3 FPGA 보드와 Vivado Block Design을 기반으로 구현한 **도서관 좌석 관리 시스템**입니다.
-
-MicroBlaze RISC-V 프로세서를 중심으로 AXI GPIO, AXI UARTLite, AXI Timer, AXI Quad SPI를 연결하여 LCD 출력, SPI 기반 외부 모듈 통신, UART 디버깅이 가능한 임베디드 시스템 구조를 구성했습니다. 도서관 좌석의 사용 상태를 확인하고, 좌석 이용/반납 과정을 관리할 수 있도록 하드웨어 플랫폼을 설계했습니다.
+Basys3 FPGA 보드와 Vivado Block Design을 기반으로 구현한 **도서관 좌석 관리 시스템**
 
 ---
+<br>
 
 ## ✨ 2. Key Features (주요 기능)
 
-### 2.1 📚 Library Seat Status Management (도서관 좌석 상태 관리)
-
-  * 도서관 좌석의 사용 가능 여부를 관리하는 시스템 구조
-  * 좌석 사용, 반납, 상태 확인 흐름을 임베디드 시스템으로 구성
-  * 좌석 상태 정보를 LCD 화면에 표시할 수 있도록 출력부 구성
-
-### 2.2 💺 Seat Check-In / Check-Out Control (좌석 이용·반납 제어)
-
-  * 좌석 이용 등록과 반납 처리를 위한 기본 제어 구조 구현
-  * 사용자 입력 또는 외부 모듈 입력을 통해 좌석 상태 변경 가능
-  * 좌석이 사용 중인지, 비어 있는지 확인할 수 있는 흐름 구성
-
-### 2.3 🖥️ LCD Display Output (LCD 화면 출력)
-
-  * AXI GPIO를 이용해 LCD 제어 신호 출력
-  * 6bit LCD 제어 버스를 통해 문자 LCD와 연결
-  * 좌석 상태, 안내 문구, 오류 메시지 등을 표시할 수 있는 출력 구조 구성
-
-### 2.4 🔐 SPI External Module Interface (SPI 외부 모듈 연동)
-
-  * AXI Quad SPI IP를 사용하여 SPI 기반 외부 장치와 통신
-  * RFID, 센서, 기타 SPI 모듈을 연결할 수 있는 확장 구조
-  * `spi_rtl_0` 포트를 통해 `SS`, `SCK`, `MOSI`, `MISO` 신호 사용
-
-### 2.5 🔁 Timer-based System Control (타이머 기반 제어)
-
-  * AXI Timer를 이용해 일정 시간 간격의 이벤트 처리 가능
-  * LCD 갱신, 좌석 상태 유지 시간 계산, 주기적 상태 확인 등에 활용 가능
-  * 시간 기반 동작을 하드웨어 타이머로 안정적으로 처리
-
-### 2.6 🧩 MicroBlaze RISC-V based Embedded System (MicroBlaze RISC-V 기반 임베디드 시스템)
-
-  * Vivado Block Design에서 MicroBlaze RISC-V 프로세서 사용
-  * AXI SmartConnect를 통해 UART, GPIO, Timer, SPI IP를 하나의 시스템으로 연결
-  * Vitis와 연동하여 C 기반 소프트웨어 제어가 가능한 하드웨어 플랫폼 구성
+- RFID 카드를 이용한 좌석 이용 등록 및 반납 기능 구현
+- UART와 moserial을 통해 관리자가 좌석 상태를 확인하고 제어할 수 있는 구조 구성
+- LCD 화면에 좌석 상태, 안내 문구, 오류 메시지 등을 출력하여 사용자에게 좌석 정보 제공
 
 ---
 
@@ -81,42 +49,35 @@ MicroBlaze RISC-V 프로세서를 중심으로 AXI GPIO, AXI UARTLite, AXI Timer
 
 ## 🗂️ 4. Project Structure (프로젝트 구조)
 
+## 🗂️ 4. Project Structure (프로젝트 구조)
+
 ### Project Tree (프로젝트 트리)
 
 ```txt
 project_LIBRARY/
-├── project_LIBRARY.xpr                          # Vivado 프로젝트 파일
-├── design_library_wrapper.xsa                   # Vitis 연동용 하드웨어 플랫폼 파일
+├── project_LIBRARY.xpr                  # Vivado 프로젝트 파일
+├── design_library_wrapper.xsa           # Vitis 연동용 하드웨어 플랫폼 파일
 │
-├── project_LIBRARY.srcs/
-│   ├── sources_1/
-│   │   └── bd/
-│   │       └── design_library/
-│   │           ├── design_library.bd            # Vivado Block Design
-│   │           └── ip/                          # MicroBlaze 및 AXI IP 설정
-│   │
-│   └── constrs_1/
-│       └── imports/
-│           └── fpga/
-│               └── Basys-3-Master.xdc           # Basys3 핀 제약 조건
+├── project_LIBRARY.srcs/                # 하드웨어 설계 소스 및 제약 파일
+│   ├── design_library.bd                # Vivado Block Design
+│   ├── ip/                              # MicroBlaze 및 AXI IP 설정
+│   └── Basys-3-Master.xdc               # Basys3 핀 제약 조건
 │
-├── project_LIBRARY.gen/
-│   └── sources_1/
-│       └── bd/
-│           └── design_library/
-│               ├── hdl/
-│               │   └── design_library_wrapper.v # Block Design Wrapper
-│               └── ip/                          # 생성된 IP HDL 파일
+├── project_LIBRARY.gen/                 # Vivado에서 생성된 HDL 및 IP 파일
+│   ├── design_library_wrapper.v         # Block Design Wrapper
+│   └── ip/                              # 생성된 IP HDL 파일
 │
-├── project_LIBRARY.runs/
-│   ├── synth_1/                                 # 합성 결과
-│   └── impl_1/                                  # 구현 및 bitstream 결과
-│       ├── design_library_wrapper.bit           # FPGA 업로드용 bitstream
+├── project_LIBRARY.runs/                # 합성, 구현, bitstream 결과
+│   ├── synth_1/                         # 합성 결과
+│   └── impl_1/                          # 구현 결과
+│       ├── design_library_wrapper.bit   # FPGA 업로드용 bitstream
 │       └── design_library_wrapper.mmi
 │
-├── project_LIBRARY.hw/                          # Hardware Manager 관련 파일
-├── project_LIBRARY.sim/                         # 시뮬레이션 관련 파일
-└── README.md                                    # 프로젝트 설명 문서
+├── project_LIBRARY.hw/                  # Hardware Manager 관련 파일
+├── project_LIBRARY.sim/                 # 시뮬레이션 관련 파일
+└── README.md                            # 프로젝트 설명 문서
+```
+
 ```
 
 ---
