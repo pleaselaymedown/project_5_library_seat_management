@@ -153,10 +153,9 @@ flowchart TD
 
 ## 🖼️ 6. Vivado Block Design (Vivado 블록 디자인)
 
-<p>
-  <img src="./images/block_diagram.png" alt="Vivado Block Design" width="700">
-</p>
+<img src="./images/block_diagram.png" alt="Hardware Block Diagram" width="700">
 
+<br>
 ---
 
 ## 🎬 7. Demonstration (시연 영상)
