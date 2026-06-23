@@ -154,21 +154,22 @@ flowchart TD
 ## 🖼️ 6. Vivado Block Design (Vivado 블록 디자인)
 
 <p>
-  <img src="./images/block_design.jpg" alt="Vivado Block Design" width="700">
+  <img src="./images/block_diagram.png" alt="Vivado Block Design" width="700">
 </p>
 
 ---
 
 ## 🎬 7. Demonstration (시연 영상)
 
-### 이미지를 클릭하면 영상으로 이동합니다
+
 
 <p>
-  <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID">
+  <a href="https://www.youtube.com/watch?v=1uI5LCGYi4A">
     <img src="./images/youtube.png" alt="YouTube Demo" width="120">
   </a>
 </p>
 
+### 이미지를 클릭하면 영상으로 이동합니다
 ---
 
 ## 🛠️ 8. Troubleshooting (문제 해결 기록)
