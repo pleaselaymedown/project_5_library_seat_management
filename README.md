@@ -22,14 +22,13 @@ Basys3 FPGA 보드와 Vivado Block Design을 기반으로 구현한 **도서관 
 
 <p>
   <img src="https://img.shields.io/badge/Verilog-HDL-blue?style=for-the-badge">
-  <img src="https://img.shields.io/badge/C-Vitis-blue?style=for-the-badge">
 </p>
 
 ### 3.2 Development Environment (개발 환경)
 
 <p>
   <img src="https://img.shields.io/badge/Vivado-Block%20Design-orange?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Vitis-Embedded%20SW-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Vitis-Embedded%20SW-purple?style=for-the-badge">
 </p>
 
 
