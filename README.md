@@ -49,33 +49,41 @@ Basys3 FPGA 보드와 Vivado Block Design을 기반으로 구현한 **도서관 
 
 ## 🗂️ 4. Project Structure (프로젝트 구조)
 
-## 🗂️ 4. Project Structure (프로젝트 구조)
 
-### Project Tree (프로젝트 트리)
-
-```txt
+```text
 project_LIBRARY/
-├── project_LIBRARY.xpr                  # Vivado 프로젝트 파일
-├── design_library_wrapper.xsa           # Vitis 연동용 하드웨어 플랫폼 파일
+├── project_LIBRARY.xpr                                      # Vivado 프로젝트 파일
+├── design_library_wrapper.xsa                               # Vitis 연동용 하드웨어 플랫폼 파일
 │
-├── project_LIBRARY.srcs/                # 하드웨어 설계 소스 및 제약 파일
-│   ├── design_library.bd                # Vivado Block Design
-│   ├── ip/                              # MicroBlaze 및 AXI IP 설정
-│   └── Basys-3-Master.xdc               # Basys3 핀 제약 조건
+├── project_LIBRARY.srcs/
+│   ├── sources_1/
+│   │   └── bd/design_library/
+│   │       ├── design_library.bd                            # 좌석 관리 시스템 전체 Block Design
+│   │       └── ip/                                          # 시스템 동작에 사용되는 주요 IP
+│   │           ├── design_library_microblaze_riscv_0_2/     # 전체 좌석 관리 로직을 실행하는 프로세서
+│   │           ├── design_library_axi_uartlite_0_3/         # moserial 관리자용 UART 통신
+│   │           ├── design_library_axi_gpio_0_2/             # LCD 문자 출력 제어
+│   │           ├── design_library_axi_quad_spi_0_2/         # RFID 카드 인식을 위한 SPI 통신
+│   │           └── design_library_axi_timer_0_2/            # 시간 기반 동작 처리
+│   │
+│   └── constrs_1/
+│       └── imports/fpga/
+│           └── Basys-3-Master.xdc                           # LCD, RFID, UART 등 외부 장치 연결 설정
 │
-├── project_LIBRARY.gen/                 # Vivado에서 생성된 HDL 및 IP 파일
-│   ├── design_library_wrapper.v         # Block Design Wrapper
-│   └── ip/                              # 생성된 IP HDL 파일
+├── project_LIBRARY.gen/
+│   └── sources_1/bd/design_library/hdl/
+│       └── design_library_wrapper.v                         # Block Design 외부 포트 연결 Wrapper
 │
-├── project_LIBRARY.runs/                # 합성, 구현, bitstream 결과
-│   ├── synth_1/                         # 합성 결과
-│   └── impl_1/                          # 구현 결과
-│       ├── design_library_wrapper.bit   # FPGA 업로드용 bitstream
-│       └── design_library_wrapper.mmi
+├── project_LIBRARY.runs/
+│   ├── synth_1/                                             # 합성 결과
+│   └── impl_1/
+│       ├── design_library_wrapper.bit                       # Basys3 업로드용 bitstream 파일
+│       └── design_library_wrapper.mmi                       # MicroBlaze 메모리 매핑 정보
 │
-├── project_LIBRARY.hw/                  # Hardware Manager 관련 파일
-├── project_LIBRARY.sim/                 # 시뮬레이션 관련 파일
-└── README.md                            # 프로젝트 설명 문서
+├── project_LIBRARY.hw/                                      # FPGA 보드 연결 및 Hardware Manager 관련 파일
+└── project_LIBRARY.sim/                                     # 시뮬레이션 관련 파일
+```
+
 ```
 
 ```
